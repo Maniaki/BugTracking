@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "Bug")
+@Table(name = "Dev")
 
 @Getter
 @Setter
@@ -16,17 +16,15 @@ import java.util.List;
 @Builder
 @ToString
 
-public class Bug implements Serializable {
+public class Dev implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "BUGID")
+    @Column(name = "DEVID")
     private int id;
-    @Column(name = "GUBNAME")
+    @Column(name = "DEVNAME")
     private String name;
-    @Column(name = "BUGDESC")
-    private String description;
-    @Column(name = "DEVLIST")
-    private List<Dev> devlist;
+    @Column(name = "BUGLIST")
+    private List<Bug> buglist;
 }
