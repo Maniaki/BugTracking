@@ -3,6 +3,7 @@ package fr.istv.Bugtracking;
 import lombok.*;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,10 +22,12 @@ public class Dev implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "DEVID")
+    @Column(name = "ID")
     private int id;
-    @Column(name = "DEVNAME")
-    private String name;
-    @Column(name = "BUGLIST")
-    private List<Bug> buglist;
+    @Column(name = "FIRSTNAME")
+    private String firstname;
+    @Column(name = "LASTNAME")
+    private String lastname;
+    @Column(name = "AVATAR")
+    private Image avatar;
 }

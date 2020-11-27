@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,12 +22,18 @@ public class Bug implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "BUGID")
+    @Column(name = "ID")
     private int id;
-    @Column(name = "GUBNAME")
-    private String name;
-    @Column(name = "BUGDESC")
+    @Column(name = "TITLE")
+    private String title;
+    @Column(name = "DESC")
     private String description;
-    @Column(name = "DEVLIST")
-    private List<Dev> devlist;
+    @Column (name = "CREATIONDATE")
+    private Date creationDate;
+    @Column(name = "DEV")
+    private Dev dev;
+    @Column (name = "PRIORITY")
+    private String priority;
+    @Column (name = "STATE")
+    private String state = "TODO";
 }
