@@ -1,12 +1,14 @@
 package fr.istv.Bugtracking.repository;
 
-import fr.istv.Bugtracking.Dev;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import Model.Dev;
+
 @Repository
-public class DevRepository {
-
-    @Repository
-    public interface DevRepository extends //A completer
-
-}
+    public interface DevRepository extends JpaRepository<Dev,Integer>{
+    	Optional<Dev> findById(Integer Id);
+    }
+    	//A completer

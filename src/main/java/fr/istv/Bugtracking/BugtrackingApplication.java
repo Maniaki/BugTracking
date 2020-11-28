@@ -25,45 +25,45 @@ public class BugtrackingApplication {
 		}
 	}
 	
-	public Dev createdev() {
+	public Dev CreateDev() {
 		Dev dev = new Dev();
 		em.persist(dev);
 		return dev;
 	}
 
-	public Dev finddev(int id) {
+	public Dev FindDev(int id) {
 		return em.find(Dev.class, id);
 	}
 	
-	public Collection<Dev> findAllDev(){
+	public Collection<Dev> FindAllDev(){
 		Query query = em.createQuery("SELECT s FROM Dev s");
 		return (Collection<Dev>) query.getResultList();
 	}
 	
-	public void removeDev(int id) {
-		Dev d = finddev(id);
+	public void RemoveDev(int id) {
+		Dev d = FindDev(id);
 		if(d != null) {
 			em.remove(d);
 		}
 	}
 	
-	public Bug createbug() {
+	public Bug CreateBug() {
 		Bug b = new Bug();
 		em.persist(b);
 		return b;
 	}
 	
-	public Bug findbug(int id) {
+	public Bug FindBug(int id) {
 		return em.find(Bug.class, id);
 	}
 	
-	public Collection<Bug> findallBug(){
+	public Collection<Bug> FindAllBug(){
 		Query query = em.createQuery("SELECT l FROM Bug l");
 		return (Collection<Bug>) query.getResultList();
 	}
 	
-	public void removeBug(int id) {
-		Bug b = findbug(id);
+	public void RemoveBug(int id) {
+		Bug b = FindBug(id);
 		if(b != null) {
 			em.remove(b);
 		}
