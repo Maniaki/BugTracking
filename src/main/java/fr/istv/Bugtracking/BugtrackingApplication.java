@@ -1,10 +1,9 @@
 package fr.istv.Bugtracking;
 
+import fr.istv.Bugtracking.Model.Dev;
+import fr.istv.Bugtracking.Model.Bug;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import Model.Bug;
-import Model.Dev;
 
 import java.util.Collection;
 
