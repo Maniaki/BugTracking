@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import fr.istv.Bugtracking.Model.Dev;
+import fr.istv.Bugtracking.model.Dev;
 
 @Repository
     public interface DevRepository extends JpaRepository<Dev,Integer>{

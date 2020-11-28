@@ -1,11 +1,10 @@
-package fr.istv.Bugtracking.Model;
+package fr.istv.Bugtracking.model;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.awt.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "Dev")
