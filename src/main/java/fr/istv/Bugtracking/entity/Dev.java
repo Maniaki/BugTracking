@@ -1,9 +1,8 @@
-package fr.istv.Bugtracking.model;
+package fr.istv.Bugtracking.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.io.Serializable;
 
 @Entity
@@ -28,5 +27,5 @@ public class Dev implements Serializable {
     @Column(name = "LASTNAME")
     private String lastname;
     @Column(name = "AVATAR")
-    private Image avatar;
+    private String avatar; //Will be an url
 }

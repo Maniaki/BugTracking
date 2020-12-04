@@ -1,4 +1,4 @@
-package fr.istv.Bugtracking.model;
+package fr.istv.Bugtracking.entity;
 
 import lombok.*;
 
