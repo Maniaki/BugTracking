@@ -15,6 +15,10 @@ import fr.istv.Bugtracking.entity.Bug;
 
         Bug findById(int id);
 
+        boolean existsById(int id);
+
+        void deleteById(int id);
+
         List<Bug> findByPriority(String first_name);
 
         List<Bug> findByState(String last_name);
@@ -22,4 +26,5 @@ import fr.istv.Bugtracking.entity.Bug;
         List<Bug> findByDev(Dev dev);
 
         List<Bug> findByDateBetween(Date from, Date to);
+
     }
