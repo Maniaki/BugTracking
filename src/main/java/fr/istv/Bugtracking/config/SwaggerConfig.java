@@ -1,6 +1,5 @@
 package fr.istv.Bugtracking.config;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -18,9 +17,9 @@ public class SwaggerConfig {
     @Bean
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
-        		.apiInfo(apiInfo());
+        		.apiInfo(apiInfo())
         		.select()
-        		.apis(RequestHandlerSelectors.basePackage("fr.istv.Bugtracking.config"))
+        		.apis(RequestHandlerSelectors.basePackage("fr.istv.Bugtracking.route"))
         		.paths(PathSelectors.any())
         		.build();
     }
