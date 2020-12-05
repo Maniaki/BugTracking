@@ -1,13 +1,12 @@
 package fr.istv.Bugtracking.repository;
 
-import java.util.Date;
-import java.util.List;
-
+import fr.istv.Bugtracking.entity.Bug;
 import fr.istv.Bugtracking.entity.Dev;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import fr.istv.Bugtracking.entity.Bug;
+import java.util.Date;
+import java.util.List;
 
     @Repository
     public interface BugRepository extends JpaRepository<Bug, Integer>{
@@ -19,12 +18,12 @@ import fr.istv.Bugtracking.entity.Bug;
 
         void deleteById(int id);
 
-        List<Bug> findByPriority(String first_name);
+        List<Bug> findByPriority(String priority);
 
-        List<Bug> findByState(String last_name);
+        List<Bug> findByState(String state);
 
         List<Bug> findByDev(Dev dev);
 
-        List<Bug> findByDateBetween(Date from, Date to);
+        List<Bug> findByCreationDateBetween(Date from, Date to);
 
     }

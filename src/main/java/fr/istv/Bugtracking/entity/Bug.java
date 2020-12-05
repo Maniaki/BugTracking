@@ -29,8 +29,10 @@ public class Bug implements Serializable {
     private String description;
     @Column (name = "CREATIONDATE")
     private Date creationDate;
+    //TODO fix the dev reference not working (may use dev ID)
     @Column(name = "DEV")
     private Dev dev;
+    //
     @Column (name = "PRIORITY")
     private String priority;
     @Column (name = "STATE")

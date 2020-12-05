@@ -22,11 +22,11 @@ public class DevService {
     }
 
     public List<Dev> getDevsByFirstName(String firstname){
-        return devRepository.findByFirstName(firstname);
+        return devRepository.findByFirstname(firstname);
     }
 
     public List<Dev> getDevsByLastName(String lastname){
-        return devRepository.findByLastName(lastname);
+        return devRepository.findByLastname(lastname);
     }
 
    /** public Dev updateAvatar(String url){

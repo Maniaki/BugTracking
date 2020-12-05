@@ -45,7 +45,7 @@ public class XBugService { //XBugService avec le X car BugService est déjà une
     }
 
     public List<Bug> getBugsByDev(Date from, Date to) {
-        return bugRepository.findByDateBetween(from,to);
+        return bugRepository.findByCreationDateBetween(from,to);
     }
 
 }

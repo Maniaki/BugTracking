@@ -1,20 +1,19 @@
 package fr.istv.Bugtracking.repository;
 
-import java.util.List;
-
+import fr.istv.Bugtracking.entity.Dev;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import fr.istv.Bugtracking.entity.Dev;
+import java.util.List;
 
 @Repository
     public interface DevRepository extends JpaRepository<Dev,Integer>{
     	//Optional<Dev> findById(Integer Id);
     Dev findById(int id);
 
-    List<Dev> findByFirstName(String first_name);
+    List<Dev> findByFirstname(String first_name);
 
-    List<Dev> findByLastName(String last_name);
+    List<Dev> findByLastname(String last_name);
 /**
     @Query(query = "select t from T t")
     public List<T> getAll();
