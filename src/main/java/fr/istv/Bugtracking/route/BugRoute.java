@@ -19,26 +19,26 @@ public class BugRoute<BugService> {
     @Autowired
     XBugService bugService;
 
-    @GetMapping("bug/{ID}") {
+    @GetMapping("bug/{ID}") 
         public Bug getBug (@PathVariable("ID") int id){
             return bugRepository.findById(id);
         }
-    }
+    
 
     @GetMapping("bug")
     public List<Bug> getAllSBugs() {
         return bugRepository.findAll();
     }
 
-    @GetMapping("bug/{priority}"){
+    @GetMapping("bug/{priority}")
         public List<Bug> getByPriority(@PathVariable("priority") String priority){
             return bugRepository.findByPriority(priority);
         }
-    }
+    
 
-    @GetMapping("bug/{priority}"){
+    @GetMapping("bug/{priority}")
         public List<Bug> getByState(@PathVariable("state") String state){
             return bugRepository.findByState(state);
         }
-    }
 }
+
