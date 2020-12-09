@@ -1,11 +1,10 @@
 package fr.istv.Bugtracking.repository;
 
 import fr.istv.Bugtracking.entity.Bug;
-import fr.istv.Bugtracking.entity.Dev;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
     @Repository
@@ -22,7 +21,7 @@ import java.util.List;
 
         List<Bug> findByState(String state);
 
-        List<Bug> findByDev(Dev dev);
+        List<Bug> findByDevId(int devId);
 
         List<Bug> findByCreationDateBetween(Date from, Date to);
 

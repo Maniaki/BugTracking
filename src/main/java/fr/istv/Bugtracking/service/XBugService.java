@@ -1,12 +1,11 @@
 package fr.istv.Bugtracking.service;
 
 import fr.istv.Bugtracking.entity.Bug;
-import fr.istv.Bugtracking.entity.Dev;
 import fr.istv.Bugtracking.repository.BugRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -40,8 +39,8 @@ public class XBugService { //XBugService avec le X car BugService est déjà une
         return bugRepository.findByState(state);
     }
 
-    public List<Bug> getBugsByDev(Dev dev) {
-        return bugRepository.findByDev(dev);
+    public List<Bug> getBugsByDevId(int devid) {
+        return bugRepository.findByDevId(devid);
     }
 
     public List<Bug> getBugsByDev(Date from, Date to) {

@@ -1,7 +1,6 @@
 package fr.istv.Bugtracking.route;
 
 import fr.istv.Bugtracking.entity.Bug;
-import fr.istv.Bugtracking.entity.Dev;
 import fr.istv.Bugtracking.repository.BugRepository;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -51,9 +50,9 @@ public class BugRoute<BugService> {
             return bugRepository.findByState(state);
         }
 
-    @GetMapping("bug/{dev}")
+    @GetMapping("bug/{devid}")
     @ApiOperation(value="List all bugs of a developer", response = List.class)
-        public List<Bug> getBugByDev(@PathVariable("dev") Dev dev){
-            return bugRepository.findByDev(dev);
+        public List<Bug> getBugByDev(@PathVariable("id") int devid){
+            return bugRepository.findByDevId(devid);
         }
 }

@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "Bug")
@@ -25,13 +25,13 @@ public class Bug implements Serializable {
     private int id;
     @Column(name = "TITLE")
     private String title;
-    @Column(name = "DESC")
+    @Column(name = "DESCRIPTION")
     private String description;
     @Column (name = "CREATIONDATE")
     private Date creationDate;
     //TODO fix the dev reference not working (may use dev ID)
-    @Column(name = "DEV")
-    private Dev dev;
+    @Column (name="DEVID")
+    private int devId;
     //
     @Column (name = "PRIORITY")
     private String priority;
