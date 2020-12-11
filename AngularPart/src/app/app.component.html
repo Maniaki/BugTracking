@@ -1,9 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Bugs</a>
+  <a class="navbar-brand" href="#">Home</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#" (click)="goToLink('https://github.com/Maniaki/BugTracking)">
+        <a class="nav-link" href="#" (click)="goToLinkNoPopup('http://localhost:4200/bug')">
+          <img height="32" width="32" src="https://image.flaticon.com/icons/png/512/48/48642.png"/>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="goToLinkNoPopup('http://localhost:4200/dev')">
+          <img height="32" width="32" src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/84_Dev-512.png"/>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="goToLink('https://github.com/Maniaki/BugTracking')">
           <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg"/>
         </a>
       </li>

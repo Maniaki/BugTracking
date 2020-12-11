@@ -3,20 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ListBugsComponent } from './list-bugs/list-bugs.component';
+import { ListDevsComponent } from './list-devs/list-devs.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ListDevsComponent } from './display-dev/display-devs.component';
-import { ListBugsComponent } from './display-bug/display-bugs.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListDevComponent,
-    ListBugComponent
+    ListBugsComponent,
+    ListDevsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

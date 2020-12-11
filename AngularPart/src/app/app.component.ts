@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularProject';
+    goToLink(url: string): void{
+    window.open(url, '_blank');
+}
+goToLinkNoPopup(url: string): void{ //Open link in the same window
+    open(url, '_self');
+}
 }

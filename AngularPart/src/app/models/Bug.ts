@@ -1,9 +1,9 @@
 export interface Bug {
-  id?: id;
+  id?: number;
   title: string;
   description: string;
-  creationdate: date;
-  devid: int;
+  creationdate: Date;
+  devid: number;
   priority: string;
   state: string;
 }
