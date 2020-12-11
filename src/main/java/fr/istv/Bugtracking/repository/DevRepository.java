@@ -18,8 +18,6 @@ import java.util.List;
     
     void deleteDevById(int id);
     
-    Bug createDev(int id,String FirstName,String LastName,String avatar);
-    
     Bug updateDevById(int id);
 /**
     @Query(query = "select t from T t")
