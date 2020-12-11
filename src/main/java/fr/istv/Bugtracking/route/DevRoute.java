@@ -1,6 +1,5 @@
 package fr.istv.Bugtracking.route;
 
-import fr.istv.Bugtracking.entity.Bug;
 import fr.istv.Bugtracking.entity.Dev;
 import fr.istv.Bugtracking.repository.DevRepository;
 import io.swagger.annotations.ApiOperation;
