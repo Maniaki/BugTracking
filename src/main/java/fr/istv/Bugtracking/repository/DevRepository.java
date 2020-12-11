@@ -17,8 +17,6 @@ import java.util.List;
     List<Dev> findByLastname(String last_name);
     
     void deleteDevById(int id);
-    
-    Bug updateDevById(int id);
 /**
     @Query(query = "select t from T t")
     public List<T> getAll();

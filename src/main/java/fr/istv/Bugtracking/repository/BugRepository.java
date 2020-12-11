@@ -24,7 +24,5 @@ import java.util.List;
         List<Bug> findByCreationDateBetween(Date from, Date to);
         
         void deleteById(int id);
-  
-        Bug updateBugById(int id);
 
     }
