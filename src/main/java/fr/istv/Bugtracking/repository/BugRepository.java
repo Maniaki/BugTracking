@@ -15,8 +15,6 @@ import java.util.List;
 
         boolean existsById(int id);
 
-        void deleteById(int id);
-
         List<Bug> findByPriority(String priority);
 
         List<Bug> findByState(String state);
@@ -24,5 +22,11 @@ import java.util.List;
         List<Bug> findByDevId(int devId);
 
         List<Bug> findByCreationDateBetween(Date from, Date to);
+        
+        void deleteById(int id);
+        
+        Bug createBug(int id,String title,String description,Date creationDate,int devId,String priority);
+        
+        Bug updateBugById(int id);
 
     }

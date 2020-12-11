@@ -16,6 +16,7 @@ import java.sql.Date;
 @Builder
 @ToString
 
+
 public class Bug implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,5 +37,6 @@ public class Bug implements Serializable {
     @Column (name = "PRIORITY")
     private String priority;
     @Column (name = "STATE")
+    @Builder.Default
     private String state = "TODO";
 }
