@@ -1,23 +1,15 @@
 package fr.istv.Bugtracking.route;
 
-import java.sql.Date;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import fr.istv.Bugtracking.entity.Bug;
 import fr.istv.Bugtracking.repository.BugRepository;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.sql.Date;
+import java.util.List;
 
 @RestController
 public class BugRoute<BugService> {
@@ -60,19 +52,22 @@ public class BugRoute<BugService> {
 
     @GetMapping("bug/bydev/{devid}")
     @ApiOperation(value="List all bugs of a developer", response = List.class)
-        public List<Bug> getBugByDev(@PathVariable("id") int devid){
+        public List<Bug> getBugByDevId(@PathVariable("devid") int devid){
             return bugRepository.findByDevId(devid);
         }
     
     @PostMapping("bug/create")
     @ApiOperation(value="Create a bug", response = List.class)
     public Bug createBug(@Validated @RequestBody Bug bug) {
+        if ((bug.getTitle().length() == 0) || (bug.getPriority().length() == 0)) {
+            return null;//si champ invalide ne rien faire
+        }
     	 return bugRepository.save(
     			 bug
     			);
     }
     
-    @DeleteMapping("bug/{id}")
+    @DeleteMapping("bug/delete/{id}")
     @ApiOperation(value="Delete a bug", response = List.class)
     public ResponseEntity<?> createBug(@PathVariable("id") Integer id) throws Exception{
     	if(!bugRepository.existsById(id)) {
@@ -89,9 +84,16 @@ public class BugRoute<BugService> {
     @ApiOperation(value="Update description,priority,state or DevId for target Bug", response = List.class)
     public Bug updateBug(@Validated @RequestBody Bug bug, @RequestParam int id) {
     	Bug bugToUpdate = bugRepository.findById(id);
+        if(bug.getTitle().length()!=0) {
+            bugToUpdate.setTitle(bug.getTitle());
+        }
+        if(bug.getPriority().length()!=0) {
+            bugToUpdate.setPriority(bug.getPriority());
+        }
+        if(bug.getState().length()!=0) {
+            bugToUpdate.setState(bug.getState());
+        }
     	bugToUpdate.setDescription(bug.getDescription());
-    	bugToUpdate.setPriority(bug.getPriority());
-    	bugToUpdate.setState(bug.getState());
     	bugToUpdate.setDevId(bug.getDevId());
     	
     	return bugRepository.save(bugToUpdate);

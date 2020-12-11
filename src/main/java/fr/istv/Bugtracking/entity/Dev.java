@@ -23,9 +23,9 @@ public class Dev implements Serializable {
     @Column(name = "ID")
     private int id;
     @Column(name = "FIRSTNAME")
-    private String firstname;
+    private String firstName;
     @Column(name = "LASTNAME")
-    private String lastname;
+    private String lastName;
     @Column(name = "AVATAR")
     private String avatar; //Will be an url
 }

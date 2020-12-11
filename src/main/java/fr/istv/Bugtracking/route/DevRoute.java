@@ -26,9 +26,9 @@ public class DevRoute {
    // @Autowired
     //DevService devService;
 
-    @GetMapping("dev/id/{ID}")
+    @GetMapping("dev/id/{id}")
     @ApiOperation(value="Retrieve one dev by its ID", response = Dev.class)
-    public Dev getDev (@PathVariable("ID") int id){
+    public Dev getDev (@PathVariable("id") int id){
         return devRepository.findById(id);
     }
 
@@ -40,30 +40,32 @@ public class DevRoute {
 
     @GetMapping("dev/lastname/{lastname}")
     @ApiOperation(value="List devs who share the same last name", response = List.class)
-    public List<Dev> getByPriority(@PathVariable("priority") String lastname){
-        return devRepository.findByLastname(lastname);
+    public List<Dev> getByPriority(@PathVariable("lastname") String lastname){
+        return devRepository.findByLastName(lastname);
     }
 
     @GetMapping("dev/firstname/{firstname}")
     @ApiOperation(value="List devs who share the same first name", response = List.class)
-    public List<Dev> getByState(@PathVariable("state") String firstname){
-        return devRepository.findByFirstname(firstname);
+    public List<Dev> getByState(@PathVariable("firstname") String firstname){
+        return devRepository.findByFirstName(firstname);
     }
     
-    @PostMapping("Dev")
+    @PostMapping("dev/create")
     @ApiOperation(value="Create a dev", response = List.class)
     public Dev createDev(@Validated @RequestBody Dev dev) {
+        if ((dev.getFirstName().length() == 0) || (dev.getLastName().length() == 0)) {
+            return null;//si champ invalide ne rien faire
+        }
     	return devRepository.save(
     			dev
     			);
     }
-    
-    
-    @DeleteMapping("dev/{id}")
+
+    @DeleteMapping("dev/delete/{id}")
     @ApiOperation(value="Delete a Dev", response = List.class)
     public ResponseEntity<?> createDev(@PathVariable("id") Integer id) throws Exception{
     	if(!devRepository.existsById(id)) {
-    		throw new Exception("Bug not found with id "+ id);
+    		throw new Exception("Dev not found with id "+ id);
     	}
     	return devRepository.findById(id)
     			.map(bug-> {
@@ -73,11 +75,15 @@ public class DevRoute {
     }
     
     @PutMapping("dev/update")
-    @ApiOperation(value="Update First name, Last name or Avatar for target Dev", response = List.class)
+    @ApiOperation(value="Update First name, Last name or Avatar for target Dev")
     public Dev updateDev(@Validated @RequestBody Dev dev, @RequestParam int id) {
     	Dev devToUpdate = devRepository.findById(id);
-    	devToUpdate.setFirstname(dev.getFirstname());
-    	devToUpdate.setLastname(dev.getLastname());
+    	if(dev.getFirstName().length()!=0) {
+            devToUpdate.setFirstName(dev.getFirstName());
+        }
+        if(dev.getLastName().length()!=0) {
+            devToUpdate.setLastName(dev.getLastName());
+        }
     	devToUpdate.setAvatar(dev.getAvatar());
     	
     	return devRepository.save(devToUpdate);

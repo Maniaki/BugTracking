@@ -1,6 +1,5 @@
 package fr.istv.Bugtracking.repository;
 
-import fr.istv.Bugtracking.entity.Bug;
 import fr.istv.Bugtracking.entity.Dev;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,9 +11,9 @@ import java.util.List;
     	//Optional<Dev> findById(Integer Id);
     Dev findById(int id);
 
-    List<Dev> findByFirstname(String first_name);
+    List<Dev> findByFirstName(String first_name);
 
-    List<Dev> findByLastname(String last_name);
+    List<Dev> findByLastName(String last_name);
     
     void deleteDevById(int id);
 /**
