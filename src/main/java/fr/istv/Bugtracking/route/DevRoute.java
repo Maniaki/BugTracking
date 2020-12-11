@@ -19,25 +19,25 @@ public class DevRoute {
    // @Autowired
     //DevService devService;
 
-    @GetMapping("dev/{ID}")
+    @GetMapping("dev/id/{ID}")
     @ApiOperation(value="Retrieve one dev by its ID", response = Dev.class)
     public Dev getDev (@PathVariable("ID") int id){
         return devRepository.findById(id);
     }
 
-    @GetMapping("dev")
+    @GetMapping("dev/all")
     @ApiOperation(value="List all devs", response = List.class)
     public List<Dev> getAllDevs() {
         return devRepository.findAll();
     }
 
-    @GetMapping("dev/{lastname}")
+    @GetMapping("dev/lastname/{lastname}")
     @ApiOperation(value="List devs who share the same last name", response = List.class)
     public List<Dev> getByPriority(@PathVariable("priority") String lastname){
         return devRepository.findByLastname(lastname);
     }
 
-    @GetMapping("dev/{firstname}")
+    @GetMapping("dev/firstname/{firstname}")
     @ApiOperation(value="List devs who share the same first name", response = List.class)
     public List<Dev> getByState(@PathVariable("state") String firstname){
         return devRepository.findByFirstname(firstname);

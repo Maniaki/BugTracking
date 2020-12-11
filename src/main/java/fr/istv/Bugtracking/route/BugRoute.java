@@ -20,37 +20,37 @@ public class BugRoute<BugService> {
   //  @Autowired
    // XBugService bugService;
 
-    @GetMapping("bug/{ID}")
+    @GetMapping("bug/id/{ID}")
     @ApiOperation(value="Retrieve one bug by its ID", response = Bug.class)
         public Bug getBug (@PathVariable("ID") int id){
             return bugRepository.findById(id);
         }
 
-    @GetMapping("bug")
+    @GetMapping("bug/all")
     @ApiOperation(value="List all bugs", response = List.class)
     public List<Bug> getAllSBugs() {
         return bugRepository.findAll();
     }
 
-    @GetMapping("bug/{priority}")
+    @GetMapping("bug/priority/{priority}")
     @ApiOperation(value="List bugs by a chosen priority", response = List.class)
         public List<Bug> getByPriority(@PathVariable("priority") String priority){
             return bugRepository.findByPriority(priority);
         }
 
-    @GetMapping("bug/{creationdate}")
+    @GetMapping("bug/daterange/{creationdate}")
     @ApiOperation(value="List bugs created between two date", response = List.class)
     public List<Bug> listBugsBetweenDates(@PathVariable("from,to") Date from, Date to){
         return bugRepository.findByCreationDateBetween(from,to);
     }
 
-    @GetMapping("bug/{state}")
+    @GetMapping("bug/state/{state}")
     @ApiOperation(value="List bugs by a chosen state", response = List.class)
         public List<Bug> getByState(@PathVariable("state") String state){
             return bugRepository.findByState(state);
         }
 
-    @GetMapping("bug/{devid}")
+    @GetMapping("bug/bydev/{devid}")
     @ApiOperation(value="List all bugs of a developer", response = List.class)
         public List<Bug> getBugByDev(@PathVariable("id") int devid){
             return bugRepository.findByDevId(devid);
