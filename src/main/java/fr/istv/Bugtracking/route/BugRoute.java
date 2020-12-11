@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")//Permet à Angular d'acceder aux données
 public class BugRoute<BugService> {
 
     @Autowired
