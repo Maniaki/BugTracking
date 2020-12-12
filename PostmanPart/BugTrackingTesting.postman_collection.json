@@ -11,7 +11,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/dev/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dev",
+						"all"
+					]
 				}
 			},
 			"response": []
@@ -22,7 +31,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/dev/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dev",
+						"id",
+						"1"
+					]
 				}
 			},
 			"response": []
@@ -53,7 +72,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/bug/id/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bug",
+						"id",
+						"8"
+					]
 				}
 			},
 			"response": []
@@ -64,7 +93,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/bug/state/TODO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bug",
+						"state",
+						"TODO"
+					]
 				}
 			},
 			"response": []
@@ -75,7 +114,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/bug/priority/LOW",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bug",
+						"priority",
+						"LOW"
+					]
 				}
 			},
 			"response": []
@@ -86,7 +135,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/bug/bydev/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bug",
+						"bydev",
+						"5"
+					]
 				}
 			},
 			"response": []
@@ -98,7 +157,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":\"1\",//Required \r\n    \"firstName\": \"Bill\",\r\n   \"lastName\": \"Gates\",\r\n   //pour ce test on veut changer l'avatar de Bill Gates id = 1 (l'ancienne image est une icone png d'informaticien, la nouvelle est un png de Bill Gates)\r\n   \"avatar\": \"https://img2.freepng.fr/20180202/jpq/kisspng-bill-gates-quotes-bill-gates-quotes-quotations-bill-gates-5a73fa047a0fd5.2294017615175500845.jpg\"\r\n}",
+					"raw": "{\r\n\"firstName\": \"Bill\",\r\n\"lastName\": \"Gates\",\r\n\"avatar\": \"https://img2.freepng.fr/20180202/jpq/kisspng-bill-gates-quotes-bill-gates-quotes-quotations-bill-gates-5a73fa047a0fd5.2294017615175500845.jpg\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -106,7 +165,22 @@
 					}
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/dev/update?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dev",
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
 				},
 				"description": "Ici on change juste l'avatar de Bill Gates"
 			},
@@ -117,8 +191,32 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"BugModifié\",\r\n    \"description\": \"Bug update depuis Postman\",\r\n    \"creationDate\":\"2020-12-08\",\r\n    \"devId\":\"\",\r\n   \"priority\":\"\",\r\n   \"state\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/bug/update?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bug",
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
 				}
 			},
 			"response": []
@@ -130,7 +228,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"firstName\": \"roger\",\r\n   \"lastName\": \"dupont\",\r\n   \"avatar\": \"test\"\r\n}",
+					"raw": "{\r\n   \"firstName\": \"\",\r\n   \"lastName\": \"Dupont\",\r\n   \"avatar\": \"testurl.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -138,14 +236,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/Dev",
+					"raw": "http://localhost:8080/dev/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"Dev"
+						"dev",
+						"create"
 					]
 				}
 			},
@@ -186,7 +285,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/dev/delete/5",
+					"raw": "http://localhost:8080/dev/delete/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -195,7 +294,7 @@
 					"path": [
 						"dev",
 						"delete",
-						"5"
+						"4"
 					]
 				}
 			},
